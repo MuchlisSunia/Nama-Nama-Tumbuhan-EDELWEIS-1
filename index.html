@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksi Bunga SMA NEGERI 4 PALEMBANG</title>                                                               
+    <style>
+        /* Styling dasar */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-size: cover;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            background: linear-gradient(to right, #FF69B4, #BA55D3);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .flower-card {
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .flower-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        .flower-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .flower-card:hover img {
+            transform: scale(1.1);
+        }
+        .flower-info {
+            margin-top: 10px;
+        }
+        .flower-info h3 {
+            font-size: 18px;
+            margin: 5px 0;
+            color: #444;
+        }
+        .flower-info p {
+            font-size: 14px;
+            color: #666;
+        }
+        .barcode-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .barcode-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>"TANAMAN TANAMAN SMA NEGERI 4 PALEMBANG"</h1>
+    <div class="gallery" id="gallery"></div>
+
+    <script>
+        // Data bunga berupa array, setiap objek memiliki 'nama', 'gambar', 'deskripsi', dan 'barcodeLink'
+        const flowers = [
+            {
+                nama: "Mawar",
+                gambar: "https://www.konteks.co.id/wp-content/uploads/2023/05/Bunga-Mawar-1.png",
+                deskripsi: "mawar merupakan bunga yang indah dan memiliki bau yang harum. Bunga ini sering digunakan dalam momen-momen spesial, misalnya seperti tanda ungkapan cinta, untuk hadiah valentine, wisuda, anniversary dan lain-lain.",
+                barcodeLink: "https://get-qr.com/tdnjZy",
+            },
+            {
+                nama: "Tulip",
+                gambar: "https://3.bp.blogspot.com/-Do4d2plySRs/T45JOSy-nMI/AAAAAAAADco/MMo5rFZfvFo/s1600/Bunga-tulip-pink.jpg",
+                deskripsi: "Bunga Tulip yang diketahui berasal dari Negara Belanda, Walau kenyataannya bunga tulip ini berasal dari Turki yang ditemukan pertama kali oleh Turki Usmani memiliki bentuk kelopak unik yang memberikan daya Tarik tersendiri bagi para pecinta bunga.",
+                barcodeLink: ""
+            },
+            {
+                nama: "Edelweis",
+                gambar: "https://www.konteks.co.id/wp-content/uploads/2023/03/Fakta-Unik-Bunga-Edelweis-Simbol-Cinta-dan-keabadian.png",
+                deskripsi: "Bunga Edelweis juga dijuluki sebagai bunga abadi, dan bunga ini mengandung hormon etilen yang dapat mencegah kerontokan kelopak bunga. Dengan hormon itu, Edelweis dapat mekar dan bertahan hingga 10 tahun lamanya, bahkan lebih.",
+                barcodeLink: "https://www.konteks.co.id/wp-content/uploads/2023/03/Fakta-Unik-Bunga-Edelweis-Simbol-Cinta-dan-keabadian.png",
+            },
+            {
+                nama: "Anggrek",
+                gambar: "https://3.bp.blogspot.com/-OFq_J5v65qU/VVh3ALlk6RI/AAAAAAAAA-k/sjHyDWHSus8/s1600/anggrek%2Blarat.JPG",
+                deskripsi: "Anggrek merupakan salah satu jenis tanaman hias yang memiliki keindahan yang luar biasa. Tanaman ini memiliki beragam bentuk dan warna yang membuatnya begitu menarik bagi pecinta kebun dan kolektor tanaman.",
+                barcodeLink: "",
+            },
+            {
+                nama: "Melati",
+                gambar: "https://i0.wp.com/rimbakita.com/wp-content/uploads/2020/02/bunga-melati.jpg",
+                deskripsi: "Bunga melati merupakan salah satu bunga yang digemari karena keindahan dan aromanya yang wangi. Bunga yang merupakan tanaman hias yang tumbuh perdu ini memiliki ketinggian mencapai 4 meter.",
+                barcodeLink: "",
+            },
+            {
+                nama: "Mawar",
+                gambar: "https://www.konteks.co.id/wp-content/uploads/2023/05/Bunga-Mawar-1.png",
+                deskripsi: "mawar merupakan bunga yang indah dan memiliki bau yang harum. Bunga ini sering digunakan dalam momen-momen spesial, misalnya seperti tanda ungkapan cinta, untuk hadiah valentine, wisuda, anniversary dan lain-lain.",
+                barcodeLink: "https://get-qr.com/tdnjZy",
+            },
+            {
+                nama: "Mawar",
+                gambar: "https://www.konteks.co.id/wp-content/uploads/2023/05/Bunga-Mawar-1.png",
+                deskripsi: "mawar merupakan bunga yang indah dan memiliki bau yang harum. Bunga ini sering digunakan dalam momen-momen spesial, misalnya seperti tanda ungkapan cinta, untuk hadiah valentine, wisuda, anniversary dan lain-lain.",
+                barcodeLink: "https://get-qr.com/tdnjZy",
+            },
+        ];
+
+        // Fungsi untuk menampilkan bunga dalam HTML
+        const gallery = document.getElementById("gallery");
+
+        flowers.forEach(flower => {
+            // Buat elemen div untuk setiap bunga
+            const flowerCard = document.createElement("div");
+            flowerCard.classList.add("flower-card");
+
+            // Tambahkan gambar bunga
+            const img = document.createElement("img");
+            img.src = flower.gambar;
+            img.alt = flower.nama;
+            flowerCard.appendChild(img);
+
+            // Tambahkan informasi bunga
+            const flowerInfo = document.createElement("div");
+            flowerInfo.classList.add("flower-info");
+            
+            const title = document.createElement("h3");
+            title.innerText = flower.nama;
+            flowerInfo.appendChild(title);
+
+            const description = document.createElement("p");
+            description.innerText = flower.deskripsi;
+            flowerInfo.appendChild(description);
+
+            flowerCard.appendChild(flowerInfo);
+
+            // Tambahkan link barcode
+            const barcodeLink = document.createElement("a");
+            barcodeLink.href = flower.barcodeLink;
+            barcodeLink.classList.add("barcode-link");
+            barcodeLink.innerText = "Lihat Barcode";
+            barcodeLink.target = "_blank";
+            flowerCard.appendChild(barcodeLink);
+
+            // Masukkan card bunga ke dalam gallery
+            gallery.appendChild(flowerCard);
+        });
+    </script>
+</body>
+</html>
